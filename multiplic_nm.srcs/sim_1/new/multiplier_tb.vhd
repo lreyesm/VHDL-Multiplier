@@ -43,66 +43,52 @@ END Nombre_Entidad_testbench;
 
 ARCHITECTURE behavioral OF Nombre_Entidad_testbench IS  
     
-    -- COMPONENT ALU is
-    --     Port ( 
-    --         ai          : IN std_logic;
-    --         bi          : IN std_logic;
-    --         cin         : IN std_logic;
-    --         signo       : IN std_logic;
-    --         opera       : IN std_logic_vector(1 downto 0);
-    --         cout        : OUT std_logic;
-    --         result      : OUT std_logic
+    -- COMPONENT multiplic_1 IS
+    --     PORT (
+    --         a       : IN STD_LOGIC; 
+    --         b       : IN STD_LOGIC; 
+    --         pin     : IN STD_LOGIC; 
+    --         cin     : IN STD_LOGIC;
+    --         cout    : OUT STD_LOGIC;
+    --         pout    : OUT STD_LOGIC
     --     );
-    -- END COMPONENT;  
+    -- END COMPONENT;
     
-
-    COMPONENT multiplic_1 IS
+    COMPONENT multiplier_68 IS
         PORT (
-            a       : IN STD_LOGIC; 
-            b       : IN STD_LOGIC; 
-            pin     : IN STD_LOGIC; 
-            cin     : IN STD_LOGIC;
-            cout    : OUT STD_LOGIC;
-            pout    : OUT STD_LOGIC
+            a       : IN std_logic_vector(5 DOWNTO 0); 
+            b       : IN std_logic_vector(7 DOWNTO 0); 
+            pout    : OUT std_logic_vector(13 DOWNTO 0)
         );
     END COMPONENT;
     
-    -- SIGNAL signal_ai_net: STD_LOGIC; 
-    -- SIGNAL signal_bi_net: STD_LOGIC; 
-    -- SIGNAL signal_cin_net: STD_LOGIC; 
-    -- SIGNAL signal_signo_net: STD_LOGIC; 
-    -- SIGNAL signal_opera_net: std_logic_vector(1 downto 0); 
-    -- SIGNAL signal_cout_net: STD_LOGIC; 
-    -- SIGNAL signal_result_net: STD_LOGIC; 
+    -- SIGNAL signal_a_net     : STD_LOGIC; 
+    -- SIGNAL signal_b_net     : STD_LOGIC; 
+    -- SIGNAL signal_pin_net   : STD_LOGIC; 
+    -- SIGNAL signal_cin_net   : STD_LOGIC; 
+    -- SIGNAL signal_cout_net  : STD_LOGIC; 
+    -- SIGNAL signal_pout_net  : STD_LOGIC; 
     
-    SIGNAL signal_a_net     : STD_LOGIC; 
-    SIGNAL signal_b_net     : STD_LOGIC; 
-    SIGNAL signal_pin_net   : STD_LOGIC; 
-    SIGNAL signal_cin_net   : STD_LOGIC; 
-    SIGNAL signal_cout_net  : STD_LOGIC; 
-    SIGNAL signal_pout_net  : STD_LOGIC; 
-    
+    SIGNAL signal_a_net       : std_logic_vector(5 DOWNTO 0); 
+    SIGNAL signal_b_net       : std_logic_vector(7 DOWNTO 0); 
+    SIGNAL signal_pout_net    : std_logic_vector(13 DOWNTO 0);
 
 BEGIN 
 
 -- UUT: ALU  
-UUT: multiplic_1
+UUT: multiplier_68
 -- ****************************** MAPPING *******************************
--- PORT MAP(   ai => signal_ai_net, 
---             bi => signal_bi_net, 
---             cin => signal_cin_net,
---             signo => signal_signo_net,
---             opera => signal_opera_net,
---             cout => signal_cout_net,
---             result => signal_result_net
+-- PORT MAP(   
+--             a       => signal_a_net, 
+--             b       => signal_b_net, 
+--             pin     => signal_pin_net,
+--             cin     => signal_cin_net,
+--             cout    => signal_cout_net,
+--             pout    => signal_pout_net
 --         ); 
-
 PORT MAP(   
             a       => signal_a_net, 
             b       => signal_b_net, 
-            pin     => signal_pin_net,
-            cin     => signal_cin_net,
-            cout    => signal_cout_net,
             pout    => signal_pout_net
         ); 
 
@@ -111,29 +97,23 @@ PORT MAP(
 -- ****************************** PROCESS *******************************
 Testbench_Desc_Name: PROCESS 
     BEGIN  
-        signal_a_net <= '0';
-        signal_b_net <= '0';
-        signal_pin_net <= '0';
-        signal_cin_net <= '0';
+        signal_a_net <= "000001";
+        signal_b_net <= "00000001";
         WAIT FOR 250 NS; 
 
-        signal_a_net <= '1';
-        signal_b_net <= '1';
-        signal_pin_net <= '1';
-        signal_cin_net <= '1';
-        WAIT FOR 250 NS; 
+        signal_a_net <= "100011";
+        signal_b_net <= "00000010";
+        WAIT FOR 250 NS;
 
-        signal_a_net <= '1';
-        signal_b_net <= '0';
-        signal_pin_net <= '1';
-        signal_cin_net <= '0';
+        signal_a_net <= "000011";
+        signal_b_net <= "00000011";
         WAIT FOR 250 NS;
         
-        signal_a_net <= '0';
-        signal_b_net <= '1';
-        signal_pin_net <= '0';
-        signal_cin_net <= '1';
+        signal_a_net <= "000000";
+        signal_b_net <= "01000010";
         WAIT FOR 250 NS;
+
+      
 
         WAIT;  
     END PROCESS; 
