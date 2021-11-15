@@ -1,0 +1,4 @@
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/Mandefro/Desktop/Reyes/Multiplier/multiplic_nm/multiplic_nm.srcs/sources_1/new/multiplier_1.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'multiplic_1'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/Mandefro/Desktop/Reyes/Multiplier/multiplic_nm/multiplic_nm.srcs/sim_1/new/multiplier_tb.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'Nombre_Entidad_testbench'
