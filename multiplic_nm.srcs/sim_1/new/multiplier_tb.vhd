@@ -37,11 +37,11 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 
 -- *************************** Entity name ********************************* 
-ENTITY Nombre_Entidad_testbench IS 
-END Nombre_Entidad_testbench; 
+ENTITY multiplier_nm_testbench IS 
+END multiplier_nm_testbench; 
 -- ************************************************************************* 
 
-ARCHITECTURE behavioral OF Nombre_Entidad_testbench IS  
+ARCHITECTURE behavioral OF multiplier_nm_testbench IS  
     
     -- COMPONENT multiplic_1 IS
     --     PORT (

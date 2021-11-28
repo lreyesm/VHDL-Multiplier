@@ -1,0 +1,9 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../multiplic_nm.srcs/sources_1/new/multiplier_1.vhd" \
+"../../../../multiplic_nm.srcs/sources_1/new/multiplier_68.vhd" \
+"../../../../multiplic_nm.srcs/sources_1/new/top_layer.vhd" \
+"../../../../multiplic_nm.srcs/sim_1/new/top_layer_tb.vhd" \
+
+# Do not sort compile order
+nosort
